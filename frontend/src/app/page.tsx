@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label"; // Need to add this component
+import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ApiKeyDialog } from "@/components/ApiKeyDialog"; // Import the dialog component
 
 // Placeholder data - replace with API calls
 const accountBalances = {
@@ -35,7 +36,10 @@ const dailySummary = {
 export default function DashboardPage() {
   return (
     <div className="container mx-auto p-4 space-y-6">
-      <h1 className="text-3xl font-bold">Trading Bot Dashboard</h1>
+      <div className="flex justify-between items-center">
+        <h1 className="text-3xl font-bold">Trading Bot Dashboard</h1>
+        <ApiKeyDialog /> {/* Add the dialog trigger button here */}
+      </div>
 
       {/* Bot Status & Control */}
       <Card>
@@ -46,7 +50,7 @@ export default function DashboardPage() {
           <p>Status: <span className="font-semibold text-green-600">Running</span></p> {/* Placeholder */}
           <div className="flex items-center space-x-2">
             <Switch id="bot-status" />
-            <Label htmlFor="bot-status">Pause/Resume Bot</Label> {/* Need Label component */}
+            <Label htmlFor="bot-status">Pause/Resume Bot</Label>
           </div>
         </CardContent>
       </Card>
