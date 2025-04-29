@@ -11,8 +11,16 @@ import {
 import { Badge } from "@/components/ui/badge"; // Assuming shadcn/ui structure
 import { ArrowRight, Settings, History, FileText, Activity, CheckCircle, XCircle, Percent, TrendingUp } from 'lucide-react'; // Using lucide-react icons
 
-// Helper component for Stats Card
-const StatCard = ({ title, value, icon, colorClass }) => (
+// Define props type for StatCard
+interface StatCardProps {
+  title: string;
+  value: string | number;
+  icon: React.ElementType;
+  colorClass?: string;
+}
+
+// Helper component for Stats Card with explicit props typing
+const StatCard: React.FC<StatCardProps> = ({ title, value, icon, colorClass }) => (
   <div className={`flex items-center p-4 bg-background rounded-lg border`}>
     {React.createElement(icon, { className: `h-6 w-6 mr-3 ${colorClass || 'text-primary'}` })}
     <div>
